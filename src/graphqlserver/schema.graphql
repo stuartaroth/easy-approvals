@@ -1,4 +1,28 @@
+type User {
+    id: ID!
+}
+
+type Approval {
+    id: ID!
+    user: User
+}
+
+type UserApproval {
+    id: ID!
+    user: User,
+    approval: Approval
+}
+
+enum UserAction {
+    APPROVE
+    DENY
+}
+
 type Query {
-    hello: String
-    world: String
+    getMyApprovals: [Approval]
+    getMyUserApprovals: [UserApproval]
+}
+
+type Mutation {
+    approveUserApproval(id: ID!, userAction: UserAction): UserApproval
 }

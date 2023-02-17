@@ -10,11 +10,14 @@ const schema = buildSchema(typeDefs);
 
 // The root provides a resolver function for each API endpoint
 const root = {
-    hello: () => {
-        return 'Hello world!';
+    getMyApprovals: () => {
+        return [];
     },
-    world: () => {
-        return "Easy"
+    getMyUserApprovals: () => {
+        return [];
+    },
+    approveUserApproval: (params: any) => {
+        return null;
     }
 };
 
